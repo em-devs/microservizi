@@ -1,0 +1,13 @@
+Comandi Windows (cmd-administrator)
+***********************************
+Ottenere la lista dei processi attivi sulla JVM locale:
+> jps
+
+Terminare i processi sulla JVM locale contententi la stringa 'Application':
+> for /f %i in ('jps ^| find "Application"') do (taskkill /f /pid %i)
+
+Vedere quali processi di sistema girano sulla porta 1234:
+> nestat -ano | findstr 1234
+
+Terminare forzatamente il processo con PID 4321:
+> taskkill /f /pid 4321

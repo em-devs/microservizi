@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<File name="MyFile" fileName="${sys:user.home}/logs/product-service.log"
+			immediateFlush="true" append="false">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="org" level="off" />
+		<Logger name="com" level="off" />
+		<Logger name="springfox" level="off" />
+		<Logger name="it.dominio.productservice" level="info">
+			<AppenderRef ref="MyFile" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="MyFile" />
+		</Root>
+	</Loggers>
+</Configuration>
